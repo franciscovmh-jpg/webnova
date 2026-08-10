@@ -1,2 +1,0 @@
-import Header from "./components/Header";import Hero from "./components/Hero";import {About,Benefits,FinalCTA,Intro,LaunchOffer,Maintenance,Portfolio,Pricing,Process,Services} from "./components/Sections";import FAQ from "./components/FAQ";import Contact from "./components/Contact";import Footer from "./components/Footer";
-export default function Home(){return <><Header/><main><Hero/><Intro/><Services/><LaunchOffer/><Benefits/><Process/><Portfolio/><Maintenance/><Pricing/><FAQ/><About/><FinalCTA/><Contact/></main><Footer/></>}
