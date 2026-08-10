@@ -1,6 +1,6 @@
-# Austral Web
+# FIDORIA
 
-Sitio one-page profesional de Austral Web para ofrecer creación, rediseño y mantenimiento de páginas web. Esta versión está preparada únicamente para desarrollo local.
+Sitio profesional de Fidoria para ofrecer creación, rediseño y mantenimiento de páginas web. Esta versión está preparada únicamente para desarrollo local.
 
 ## Requisitos
 
