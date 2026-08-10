@@ -1,6 +1,6 @@
-# Webnova
+# Austral Web
 
-Sitio one-page profesional para ofrecer creación, rediseño y mantenimiento de páginas web. Esta versión está preparada únicamente para desarrollo local.
+Sitio one-page profesional de Austral Web para ofrecer creación, rediseño y mantenimiento de páginas web. Esta versión está preparada únicamente para desarrollo local.
 
 ## Requisitos
 
