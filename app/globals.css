@@ -47,6 +47,6 @@
 .quote-logo img{width:170px;height:52px;object-fit:contain}.quote-logo{gap:0}.quote-logo span{display:none}@media(max-width:620px){.quote-logo img{width:132px;height:42px}}
 
 /* Aparicion progresiva del contenido al hacer scroll */
-.reveal-ready .scroll-reveal{opacity:0;translate:0 34px;filter:blur(5px);transition:opacity .7s cubic-bezier(.22,1,.36,1),translate .7s cubic-bezier(.22,1,.36,1),filter .6s ease;transition-delay:var(--reveal-delay,0ms);will-change:opacity,translate,filter}
-.reveal-ready .scroll-reveal.is-visible{opacity:1;translate:0 0;filter:blur(0);will-change:auto}
-@media(prefers-reduced-motion:reduce){.reveal-ready .scroll-reveal{opacity:1;translate:none;filter:none;transition:none}}
+.reveal-ready .scroll-reveal{opacity:0;translate:0 22px;transition:opacity .48s ease-out,translate .48s cubic-bezier(.22,1,.36,1);transition-delay:var(--reveal-delay,0ms)}
+.reveal-ready .scroll-reveal.is-visible{opacity:1;translate:0 0}
+@media(prefers-reduced-motion:reduce){.reveal-ready .scroll-reveal{opacity:1;translate:none;transition:none}}

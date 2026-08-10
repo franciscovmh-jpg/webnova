@@ -3,17 +3,11 @@
 import { useEffect } from "react";
 
 const revealSelectors = [
-  ".hero-copy > *",
+  ".hero-copy",
   ".hero .visual",
   "main .section .container > *",
-  ".service-grid > article",
-  ".benefits > article",
-  ".process > article",
-  ".portfolio-grid > article",
-  ".pricing > article",
-  ".accordion > article",
-  ".footer-grid > div",
-  ".footer-bottom > *",
+  ".footer-grid",
+  ".footer-bottom",
 ];
 
 export default function ScrollReveal() {
@@ -44,7 +38,7 @@ export default function ScrollReveal() {
           observer.unobserve(entry.target);
         });
       },
-      { rootMargin: "0px 0px -10%", threshold: 0.08 },
+      { rootMargin: "0px 0px -6%", threshold: 0.05 },
     );
 
     elements.forEach((element) => observer.observe(element));
