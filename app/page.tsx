@@ -1,2 +1,2 @@
-import Header from "./components/Header";import Hero from "./components/Hero";import {Benefits,FinalCTA,Intro,Maintenance,Portfolio,Pricing,Process,Services} from "./components/Sections";import FAQ from "./components/FAQ";import Footer from "./components/Footer";
-export default function Home(){return <><Header/><main><Hero/><Intro/><Services/><Benefits/><Process/><Portfolio/><Maintenance/><Pricing/><FAQ/><FinalCTA/></main><Footer/></>}
+import Header from "./components/Header";import Hero from "./components/Hero";import {Benefits,FinalCTA,Intro,Maintenance,Portfolio,Pricing,Process,Services} from "./components/Sections";import FAQ from "./components/FAQ";import Footer from "./components/Footer";import ScrollReveal from "./components/ScrollReveal";
+export default function Home(){return <><ScrollReveal/><Header/><main><Hero/><Intro/><Services/><Benefits/><Process/><Portfolio/><Maintenance/><Pricing/><FAQ/><FinalCTA/></main><Footer/></>}
