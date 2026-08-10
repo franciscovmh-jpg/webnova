@@ -2,8 +2,8 @@
 import { useEffect, useState } from "react";
 
 const links = [["Inicio","inicio"],["Servicios","servicios"],["Proyectos","proyectos"],["Nosotros","nosotros"],["Contacto","contacto"]];
-export function Logo(){return <a className="logo" href="#inicio" aria-label="Webnova, inicio"><span>WEB</span><strong>NOVA</strong></a>}
-export function selectService(service:string){window.dispatchEvent(new CustomEvent("webnova:service",{detail:service}))}
+export function Logo(){return <a className="logo" href="#inicio" aria-label="Austral Web, inicio"><span>AUSTRAL</span><strong>WEB</strong></a>}
+export function selectService(service:string){window.dispatchEvent(new CustomEvent("austral-web:service",{detail:service}))}
 export default function Header(){
  const [open,setOpen]=useState(false); const [scrolled,setScrolled]=useState(false); const [active,setActive]=useState("inicio");
  useEffect(()=>{document.body.classList.toggle("menu-open",open);return()=>document.body.classList.remove("menu-open")},[open]);
