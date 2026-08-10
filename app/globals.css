@@ -119,3 +119,9 @@
 @media(max-width:1050px){.benefits{grid-template-columns:repeat(3,1fr)}.benefits article:nth-child(4),.benefits article:nth-child(5){min-height:225px}}
 @media(max-width:680px){.benefits-section .center{margin-bottom:38px}.benefits{grid-template-columns:1fr}.benefits article,.benefits article:nth-child(4),.benefits article:nth-child(5){min-height:205px}.benefits article:hover{translate:0 -3px}}
 @media(prefers-reduced-motion:reduce){.benefits.scroll-reveal.is-visible article{animation:none}}
+
+/* Interaccion sobria en beneficios */
+.benefits article:before{display:none}
+.benefits article:hover{translate:0 -3px}
+.benefits article>span i,.benefits article:hover>span i{transform:none;transition:none}
+.benefits article>div{display:none}
