@@ -90,3 +90,7 @@
 @keyframes plan-modal-in{from{opacity:0;transform:translateY(14px) scale(.98)}to{opacity:1;transform:none}}
 @media(max-width:620px){.plan-modal{padding:28px 22px}.plan-modal-grid{grid-template-columns:1fr}.plan-modal>.btn{width:100%}}
 @media(prefers-reduced-motion:reduce){.plan-modal{animation:none}}
+
+/* Evita que la linea de progreso atraviese las etiquetas */
+.quote-progress>div:not(:last-child):after{z-index:0}
+.quote-progress b{position:relative;z-index:2;padding:2px 10px 2px 0;background:#0f172a}
