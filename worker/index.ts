@@ -133,7 +133,10 @@ const worker = {
             }),
           );
           return Response.json(
-            { error: "No pudimos enviar la solicitud" },
+            {
+              error: "No pudimos enviar la solicitud",
+              providerStatus: resendResponse.status,
+            },
             { status: 502 },
           );
         }
