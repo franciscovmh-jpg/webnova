@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { brandConfig } from "../config";
 
 const links = [["Inicio","inicio"],["Servicios","servicios"],["Proyectos","proyectos"]];
-export function Logo(){return <a className="logo" href="#inicio" aria-label={`${brandConfig.name}, inicio`}><img src={brandConfig.logo} alt={brandConfig.name}/></a>}
+export function Logo(){return <a className="logo" href="#inicio" aria-label={`${brandConfig.name}, inicio`}><img src={brandConfig.mark} alt=""/><strong>{brandConfig.displayName}</strong></a>}
 export function selectService(service:string){window.location.assign(`/cotizar?servicio=${encodeURIComponent(service)}`)}
 export default function Header(){
  const [open,setOpen]=useState(false); const [scrolled,setScrolled]=useState(false); const [active,setActive]=useState("inicio");

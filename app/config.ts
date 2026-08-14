@@ -9,7 +9,7 @@ export const brandConfig = {
 export const siteConfig = {
   whatsappNumber: "", // Ejemplo futuro: 56912345678 (sin + ni espacios)
   email: "",
-  socials: { instagram: "", linkedin: "", whatsapp: "" },
+  socials: { instagram: "https://www.instagram.com/fidoriaweb/", linkedin: "", whatsapp: "" },
 };
 
 export const prices = [
