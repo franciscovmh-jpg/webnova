@@ -1,0 +1,31 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "fidoria",
+  "workers_dev": true,
+  "compatibility_date": "2026-08-14",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "main": "./worker/index.ts",
+  "assets": {
+    "directory": "dist/client",
+    "not_found_handling": "none",
+    "binding": "ASSETS"
+  },
+  "routes": [
+    {
+      "pattern": "fidoria.cl",
+      "custom_domain": true
+    },
+    {
+      "pattern": "www.fidoria.cl",
+      "custom_domain": true
+    }
+  ],
+  "observability": {
+    "enabled": true
+  },
+  "cache": {
+    "enabled": true
+  }
+}
