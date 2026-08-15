@@ -7,7 +7,6 @@ const revealSelectors = [
   ".hero .visual",
   "main .section .container > *",
   ".footer-grid",
-  ".footer-bottom",
 ];
 
 export default function ScrollReveal() {
