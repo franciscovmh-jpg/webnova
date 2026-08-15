@@ -38,7 +38,7 @@ export default function Footer() {
       </div>
       <div className="container footer-bottom">
         <span>
-          © {new Date().getFullYear()} FIDORIA. Todos los derechos reservados.
+          Copyright © {new Date().getFullYear()} FIDORIA. Todos los derechos reservados.
         </span>
         <span>Hecho con intención en Chile 🇨🇱</span>
       </div>
