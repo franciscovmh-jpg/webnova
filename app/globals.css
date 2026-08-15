@@ -179,22 +179,3 @@ p{color:var(--gray)}
 .logo strong{background:none;color:#fff;-webkit-text-fill-color:#fff;text-shadow:0 1px 12px rgba(255,255,255,.12)}
 footer .logo img{width:44px;height:44px}
 @media(max-width:680px){.logo img{width:36px;height:36px}.logo{font-size:.93rem;gap:8px}}
-
-.instagram-card{width:max-content;display:flex;align-items:center;gap:12px;margin-bottom:30px;padding:11px 16px;border:1px solid rgba(155,177,229,.42);border-radius:13px;background:rgba(24,37,72,.46);box-shadow:0 10px 30px rgba(20,18,67,.14);color:#fff}
-.instagram-card:hover{transform:translateY(-2px);border-color:rgba(184,154,255,.75);background:rgba(45,49,101,.65)}
-.instagram-card svg{width:38px;height:38px;padding:6px;overflow:visible;border-radius:10px;stroke:#a679ff;fill:none;stroke-width:1.8;filter:drop-shadow(0 0 7px rgba(168,85,247,.5))}
-.instagram-card svg .instagram-dot{fill:#ed69cc;stroke:none}
-.instagram-card span{display:flex;flex-direction:column;line-height:1.25}.instagram-card small{color:#b7c2d7;font-size:.65rem;letter-spacing:.08em}.instagram-card strong{font-size:.86rem;letter-spacing:.02em}.instagram-card>b{margin-left:14px;color:#a9c8ff;font-size:1rem}
-@media(max-width:680px){.instagram-card{margin-bottom:34px;padding:10px 14px}.instagram-card svg{width:36px;height:36px}}
-
-/* Flujo visual continuo entre secciones */
-main>.section,.shade,.benefits-section,.process-section,.contact{background:transparent;border-block:0}
-.benefits-section:before,.benefits-section:after,.process-section:before{opacity:.55}
-
-/* Footer más claro y compacto */
-footer{padding:38px 0 18px;background:linear-gradient(135deg,#1b2c4c,#302650);border-top:1px solid rgba(174,190,224,.2)}
-.footer-grid{grid-template-columns:1.6fr repeat(3,1fr);gap:28px;padding-bottom:28px}
-.footer-grid p{margin:9px 0 0;color:#cbd7e9}
-.footer-grid b{color:#fff}.footer-grid a,.footer-grid span{color:#bccbe0}
-.footer-bottom{padding-top:15px;border-top-color:rgba(196,210,239,.22);color:#aebed5}
-@media(max-width:680px){footer{padding:30px 0 16px}.footer-grid{gap:22px;padding-bottom:22px}.footer-grid>div:not(:first-child){gap:6px}}
