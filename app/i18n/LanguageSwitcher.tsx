@@ -1,3 +1,59 @@
 "use client";
-import {useState} from "react";import {languageNames,locales,type Locale} from "./config";
-export default function LanguageSwitcher({locale,label}:{locale:Locale;label:string}){const[open,setOpen]=useState(false);const change=(next:Locale)=>{document.cookie=`fidoria_locale=${next}; Path=/; Max-Age=31536000; SameSite=Lax; Secure`;const parts=location.pathname.split("/");parts[1]=next;location.assign(parts.join("/")+location.search)};return <div className="language-switcher"><button onClick={()=>setOpen(!open)} aria-expanded={open} aria-haspopup="listbox" aria-label={label}><span aria-hidden="true">◎</span>{locale.toUpperCase()}<i>⌄</i></button>{open&&<div className="language-menu" role="listbox" aria-label={label}>{locales.map(code=><button role="option" aria-selected={code===locale} key={code} onClick={()=>change(code)}><span>{languageNames[code]}</span><small>{code.toUpperCase()}</small></button>)}</div>}</div>}
+
+import { useEffect, useRef, useState } from "react";
+import { languageNames, locales, type Locale } from "./config";
+
+const languageFlags: Record<Locale, string> = {
+  en: "🇺🇸",
+  es: "🇪🇸",
+  fr: "🇫🇷",
+  de: "🇩🇪",
+};
+
+export default function LanguageSwitcher({ locale, label }: { locale: Locale; label: string }) {
+  const [open, setOpen] = useState(false);
+  const switcherRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const closeOnOutsideClick = (event: PointerEvent) => {
+      if (!switcherRef.current?.contains(event.target as Node)) setOpen(false);
+    };
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setOpen(false);
+    };
+    document.addEventListener("pointerdown", closeOnOutsideClick);
+    document.addEventListener("keydown", closeOnEscape);
+    return () => {
+      document.removeEventListener("pointerdown", closeOnOutsideClick);
+      document.removeEventListener("keydown", closeOnEscape);
+    };
+  }, []);
+
+  const change = (next: Locale) => {
+    document.cookie = `fidoria_locale=${next}; Path=/; Max-Age=31536000; SameSite=Lax; Secure`;
+    const parts = location.pathname.split("/");
+    parts[1] = next;
+    location.assign(parts.join("/") + location.search);
+  };
+
+  return <div className="language-switcher" ref={switcherRef}>
+    <button className="language-trigger" onClick={() => setOpen((current) => !current)} aria-expanded={open} aria-haspopup="listbox" aria-label={label}>
+      <span className="language-trigger-flag" aria-hidden="true">{languageFlags[locale]}</span>
+      <span>{locale.toUpperCase()}</span>
+      <i aria-hidden="true">⌄</i>
+    </button>
+    {open && <div className="language-menu" role="listbox" aria-label={label}>
+      <div className="language-menu-heading">{label}</div>
+      {locales.map((code) => <button role="option" aria-selected={code === locale} key={code} onClick={() => change(code)}>
+        <span className="language-option-main">
+          <span className="language-flag" aria-hidden="true">{languageFlags[code]}</span>
+          <strong>{languageNames[code]}</strong>
+        </span>
+        <span className="language-option-meta">
+          <small>{code.toUpperCase()}</small>
+          <span className="language-check" aria-hidden="true">{code === locale ? "✓" : ""}</span>
+        </span>
+      </button>)}
+    </div>}
+  </div>;
+}
