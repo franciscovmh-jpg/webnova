@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
-
-# Agregar Sitemap cuando exista un dominio de producción.
+Sitemap: https://fidoria.com/sitemap.xml

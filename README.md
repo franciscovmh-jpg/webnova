@@ -32,4 +32,4 @@ Ejecuta `npm run build`. Esto comprueba que el sitio puede compilarse, pero no l
 
 ## Formulario
 
-En localhost, el formulario valida los campos y muestra un aviso de demostración. No envía correos ni guarda información. La función de envío está desacoplada para conectarla más adelante con un backend o servicio de formularios.
+El formulario de cotización envía las solicitudes por correo mediante Resend. Para desarrollo local, configura `RESEND_API_KEY` y `RESEND_FROM_EMAIL` en `.dev.vars`; en producción, conserva la API key como secreto de Cloudflare.

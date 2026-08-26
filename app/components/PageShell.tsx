@@ -1,0 +1,2 @@
+import Header from "./Header";import Footer from "./Footer";
+export default function PageShell({title,intro,children}:{title:string,intro:string,children:React.ReactNode}){return <><Header/><main className="subpage"><div className="shell"><header className="subpage-head"><p className="eyebrow">FIDORIA / {title}</p><h1 className="page-title">{title}</h1><p>{intro}</p></header>{children}</div></main><Footer/></>}

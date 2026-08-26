@@ -1,15 +1,4 @@
 "use client";
-import { useEffect, useState } from "react";
-import { brandConfig } from "../config";
-
-const links = [["Inicio","inicio"],["Servicios","servicios"],["Proyectos","proyectos"]];
-export function Logo(){return <a className="logo" href="#inicio" aria-label={`${brandConfig.name}, inicio`}><img src={brandConfig.mark} alt=""/><strong>{brandConfig.displayName}</strong></a>}
-export function selectService(service:string){window.location.assign(`/cotizar?servicio=${encodeURIComponent(service)}`)}
-export default function Header(){
- const [open,setOpen]=useState(false); const [scrolled,setScrolled]=useState(false); const [active,setActive]=useState("inicio");
- useEffect(()=>{document.body.classList.toggle("menu-open",open);return()=>document.body.classList.remove("menu-open")},[open]);
- useEffect(()=>{const onScroll=()=>setScrolled(window.scrollY>18);onScroll();window.addEventListener("scroll",onScroll,{passive:true});const ids=links.map(x=>x[1]);const observer=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)setActive(e.target.id)}),{rootMargin:"-35% 0px -55%"});ids.forEach(id=>{const el=document.getElementById(id);if(el)observer.observe(el)});return()=>{window.removeEventListener("scroll",onScroll);observer.disconnect()}},[]);
- return <header className={`header ${scrolled?"scrolled":""}`}><div className="nav-wrap"><Logo/><button className={`menu ${open?"active":""}`} aria-label={open?"Cerrar menú":"Abrir menú"} aria-expanded={open} aria-controls="main-navigation" onClick={()=>setOpen(!open)}><i/><i/><i/></button>
-   <nav id="main-navigation" className={open?"nav open":"nav"} aria-label="Navegación principal">{links.map(([label,id])=><a className={active===id?"active":""} aria-current={active===id?"page":undefined} key={id} href={`#${id}`} onClick={()=>setOpen(false)}>{label}</a>)}<a className="btn small" href="/cotizar" onClick={()=>setOpen(false)}>Solicitar cotización</a></nav>
-  </div></header>
-}
+import { useState } from "react";
+export function Logo(){return <a className="logo" href="/" aria-label="FIDORIA home"><span>F</span>FIDORIA</a>}
+export default function Header(){const [open,setOpen]=useState(false);return <><div className="announcement">Complimentary tracked shipping on orders over $75</div><header className="header"><div className="shell nav-wrap"><Logo/><button className="menu-button" onClick={()=>setOpen(!open)} aria-expanded={open} aria-label="Toggle navigation"><i/><i/></button><nav className={open?"nav open":"nav"} aria-label="Main navigation"><a href="/shop">Shop</a><a href="/#best-sellers">Best sellers</a><a href="/about">About</a><a href="/support">Support</a></nav><div className="nav-actions"><button aria-label="Search">⌕</button><a href="/cart" aria-label="Shopping bag">Bag <span>0</span></a></div></div></header></>}

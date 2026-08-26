@@ -442,7 +442,9 @@ export default function QuoteFlow() {
                   <label className="consent">
                     <input type="checkbox" required />
                     <span>
-                      Acepto ser contactado/a por Fidoria sobre esta solicitud.
+                      Acepto ser contactado/a por Fidoria sobre esta solicitud y
+                      declaro haber leído la <a href="/privacidad">política de privacidad</a>
+                      {" "}y los <a href="/terminos">términos del servicio</a>.
                     </span>
                   </label>
                 </div>

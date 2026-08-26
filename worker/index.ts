@@ -118,7 +118,7 @@ const worker = {
           body: JSON.stringify({
             from:
               env.RESEND_FROM_EMAIL || "FIDORIA Web <onboarding@resend.dev>",
-            to: ["Fidoria@hotmail.com"],
+            to: ["fidoria@hotmail.com"],
             reply_to: email,
             subject: `Cotización web — ${name}`,
             text,
@@ -126,10 +126,12 @@ const worker = {
         });
 
         if (!resendResponse.ok) {
+          const providerError = (await resendResponse.text()).slice(0, 1000);
           console.error(
             JSON.stringify({
               event: "quote_email_failed",
               status: resendResponse.status,
+              providerError,
             }),
           );
           return Response.json(
