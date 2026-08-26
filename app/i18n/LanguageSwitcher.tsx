@@ -38,21 +38,21 @@ export default function LanguageSwitcher({ locale, label }: { locale: Locale; la
 
   return <div className="language-switcher" ref={switcherRef}>
     <button className="language-trigger" onClick={() => setOpen((current) => !current)} aria-expanded={open} aria-haspopup="listbox" aria-label={label}>
-      <span className="language-trigger-flag" aria-hidden="true">{languageFlags[locale]}</span>
-      <span>{locale.toUpperCase()}</span>
+      <b className="language-trigger-flag" aria-hidden="true">{languageFlags[locale]}</b>
+      <em>{locale.toUpperCase()}</em>
       <i aria-hidden="true">⌄</i>
     </button>
     {open && <div className="language-menu" role="listbox" aria-label={label}>
       <div className="language-menu-heading">{label}</div>
       {locales.map((code) => <button role="option" aria-selected={code === locale} key={code} onClick={() => change(code)}>
-        <span className="language-option-main">
-          <span className="language-flag" aria-hidden="true">{languageFlags[code]}</span>
+        <div className="language-option-main">
+          <b className="language-flag" aria-hidden="true">{languageFlags[code]}</b>
           <strong>{languageNames[code]}</strong>
-        </span>
-        <span className="language-option-meta">
+        </div>
+        <div className="language-option-meta">
           <small>{code.toUpperCase()}</small>
-          <span className="language-check" aria-hidden="true">{code === locale ? "✓" : ""}</span>
-        </span>
+          <em className="language-check" aria-hidden="true">{code === locale ? "✓" : ""}</em>
+        </div>
       </button>)}
     </div>}
   </div>;
