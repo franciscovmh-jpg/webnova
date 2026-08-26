@@ -1,0 +1,4 @@
+import LocalizedPage from"../i18n/LocalizedPage";import{dictionaries,isLocale,locales,type Locale}from"../i18n/config";
+export function generateStaticParams(){return locales.map(locale=>({locale}))}
+export async function generateMetadata({params}:{params:Promise<{locale:string}>}){const{locale:raw}=await params;const locale=(isLocale(raw)?raw:"en")as Locale;const d=dictionaries[locale];const languages=Object.fromEntries(locales.map(code=>[code,`/${code}`]));return{title:d.meta.title,description:d.meta.description,alternates:{canonical:`/${locale}`,languages:{...languages,"x-default":"/en"}},openGraph:{title:d.meta.title,description:d.meta.description,locale:d.meta.locale,url:`/${locale}`}}}
+export default async function Page({params}:{params:Promise<{locale:string}>}){const{locale}=await params;return <LocalizedPage locale={isLocale(locale)?locale:"en"}/>}

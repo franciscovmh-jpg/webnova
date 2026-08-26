@@ -60,6 +60,23 @@ const worker = {
       });
     }
 
+    const supportedLocales = new Set(["en", "es", "fr", "de"]);
+    const firstSegment = url.pathname.split("/")[1]?.toLowerCase();
+    const isPublicFile = url.pathname.startsWith("/_next/") || url.pathname.startsWith("/brand/") || url.pathname.startsWith("/projects/") || url.pathname.startsWith("/api/") || /\.[a-z0-9]+$/i.test(url.pathname);
+    if (hostname === "shopfidoria.com" && !isPublicFile && !supportedLocales.has(firstSegment)) {
+      const cookieLocale = request.headers.get("cookie")?.match(/(?:^|;\s*)fidoria_locale=(en|es|fr|de)(?:;|$)/)?.[1];
+      const accepted = request.headers.get("accept-language")?.toLowerCase() ?? "";
+      const browserLocale = accepted.split(",").map(value => value.trim().split(";")[0].split("-")[0]).find(value => supportedLocales.has(value));
+      const locale = cookieLocale ?? browserLocale ?? "en";
+      const destination = new URL(`/${locale}${url.pathname === "/" ? "" : url.pathname}${url.search}`, url.origin);
+      return new Response(null, { status: 302, headers: { Location: destination.toString(), Vary: "Accept-Language, Cookie", "Cache-Control": "private, no-store" } });
+    }
+
+    const localizedRequest = supportedLocales.has(firstSegment)
+      ? new Request(request, { headers: new Headers(request.headers) })
+      : request;
+    if (localizedRequest !== request) localizedRequest.headers.set("x-fidoria-locale", firstSegment);
+
     if (url.pathname === "/api/cotizacion") {
       if (request.method !== "POST") {
         return Response.json(
@@ -195,7 +212,7 @@ const worker = {
       );
     }
 
-    return handler.fetch(request, env, ctx);
+    return handler.fetch(localizedRequest, env, ctx);
   },
 };
 
