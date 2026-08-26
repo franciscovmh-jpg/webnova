@@ -17,6 +17,14 @@
   },
   "routes": [
     {
+      "pattern": "shopfidoria.com",
+      "custom_domain": true
+    },
+    {
+      "pattern": "www.shopfidoria.com",
+      "custom_domain": true
+    },
+    {
       "pattern": "fidoria.cl",
       "custom_domain": true
     },

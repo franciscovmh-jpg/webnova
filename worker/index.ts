@@ -42,6 +42,18 @@ const worker = {
   ): Promise<Response> {
     const url = new URL(request.url);
 
+    const hostname = url.hostname.toLowerCase();
+    const publicHosts = new Set([
+      "shopfidoria.com",
+      "www.shopfidoria.com",
+      "fidoria.cl",
+      "www.fidoria.cl",
+    ]);
+    if (publicHosts.has(hostname) && (hostname !== "shopfidoria.com" || url.protocol !== "https:")) {
+      const destination = new URL(url.pathname + url.search, "https://shopfidoria.com");
+      return Response.redirect(destination.toString(), 301);
+    }
+
     if (url.pathname === "/api/cotizacion") {
       if (request.method !== "POST") {
         return Response.json(
