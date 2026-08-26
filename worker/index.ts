@@ -51,7 +51,13 @@ const worker = {
     ]);
     if (publicHosts.has(hostname) && (hostname !== "shopfidoria.com" || url.protocol !== "https:")) {
       const destination = new URL(url.pathname + url.search, "https://shopfidoria.com");
-      return Response.redirect(destination.toString(), 301);
+      return new Response(null, {
+        status: 301,
+        headers: {
+          Location: destination.toString(),
+          "Cache-Control": "private, no-store, max-age=0",
+        },
+      });
     }
 
     if (url.pathname === "/api/cotizacion") {
