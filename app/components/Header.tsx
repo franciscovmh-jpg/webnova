@@ -1,4 +1,4 @@
 "use client";
 import { useState } from "react";
-export function Logo(){return <a className="logo" href="/" aria-label="FIDORIA home"><span>F</span>FIDORIA</a>}
+export function Logo(){return <a className="logo" href="/" aria-label="FIDORIA home"><img src="/brand/fidoria-monogram.svg" alt=""/><span>FIDORIA</span></a>}
 export default function Header(){const [open,setOpen]=useState(false);return <><div className="announcement">Complimentary tracked shipping on orders over $75</div><header className="header"><div className="shell nav-wrap"><Logo/><button className="menu-button" onClick={()=>setOpen(!open)} aria-expanded={open} aria-label="Toggle navigation"><i/><i/></button><nav className={open?"nav open":"nav"} aria-label="Main navigation"><a href="/shop">Shop</a><a href="/#best-sellers">Best sellers</a><a href="/about">About</a><a href="/support">Support</a></nav><div className="nav-actions"><button aria-label="Search">⌕</button><a href="/cart" aria-label="Shopping bag">Bag <span>0</span></a></div></div></header></>}
