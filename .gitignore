@@ -42,3 +42,5 @@ yarn-error.log*
 /.codex-local-server.log
 /output/
 /tmp/
+/.fidoria-site.tar.gz
+/.site-package-stage/
