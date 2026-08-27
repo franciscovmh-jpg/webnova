@@ -5,8 +5,9 @@ import {
   DEFAULT_IMAGE_SIZES,
 } from "vinext/server/image-optimization";
 import handler from "vinext/server/app-router-entry";
+import {handleCommerce,type CommerceEnv} from "./commerce";
 
-interface Env {
+interface Env extends CommerceEnv {
   ASSETS: Fetcher;
   DB: D1Database;
   RESEND_API_KEY?: string;
@@ -76,6 +77,9 @@ const worker = {
       ? new Request(request, { headers: new Headers(request.headers) })
       : request;
     if (localizedRequest !== request) localizedRequest.headers.set("x-fidoria-locale", firstSegment);
+
+    const commerceResponse = await handleCommerce(request, env);
+    if (commerceResponse) return commerceResponse;
 
     if (url.pathname === "/api/cotizacion") {
       if (request.method !== "POST") {

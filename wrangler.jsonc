@@ -8,8 +8,17 @@
   ],
   "main": "./worker/index.ts",
   "vars": {
-    "RESEND_FROM_EMAIL": "FIDORIA Web <onboarding@resend.dev>"
+    "RESEND_FROM_EMAIL": "FIDORIA Web <onboarding@resend.dev>",
+    "PAYPAL_ENV": "sandbox"
   },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "fidoria-commerce",
+      "database_id": "e15e7741-a596-4391-bc8a-e71d944d5309",
+      "migrations_dir": "drizzle"
+    }
+  ],
   "assets": {
     "directory": "dist/client",
     "not_found_handling": "none",
